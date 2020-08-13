@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/detail_main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <View
+        android:id="@+id/view_main_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/selector_ripple_trans"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_bottom_sheet"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:behavior_hideable="true"
+        android:paddingTop="150dp"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@android:color/white"
+
+            >
+
+
+            <LinearLayout
+                android:layout_width="260dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal"
+                android:background="@drawable/language_title_bg"
+                >
+
+                <LinearLayout
+                    android:id="@+id/ll_left_lang"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/language_title_left_bg"
+                    >
+                    <ImageView
+                        android:id="@+id/iv_left_lang_flag"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@mipmap/ic_launcher"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_left_lang_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:text="中文"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="4dp"
+                        android:textStyle="bold"
+                        android:lines="1"
+                        android:ellipsize="end"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_right_lang"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_margin="1dp"
+                    >
+                    <ImageView
+                        android:id="@+id/iv_right_lang_flag"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@mipmap/ic_launcher"
+                        android:scaleType="fitXY"
+                        android:layout_marginLeft="10dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_right_lang_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:text="中文"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="4dp"
+                        android:lines="1"
+                        android:ellipsize="end"
+                        android:layout_marginRight="10dp"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_confirm"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:text="完成"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:textColor="@android:color/holo_blue_light"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+
+                />
+
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:visibility="gone"
+            android:background="@android:color/darker_gray"
+            />
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nsv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            >
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            />
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>

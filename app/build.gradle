@@ -1,0 +1,90 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+android {
+    signingConfigs {
+        release {
+            File strFile = new File('hnsh.jks')
+            storeFile file(strFile)   //使用相对路径
+            keyAlias 'hnsh'
+            keyPassword 'hnsh@)!('
+            storePassword 'hnsh@)!('
+        }
+    }
+    compileSdkVersion 29
+    defaultConfig {
+        flavorDimensions "city"
+        applicationId "com.hnsh.dialogue.cruzr"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 13
+        versionName "1.3"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/io.netty.versions.properties'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'project.properties'
+        exclude 'META-INF/speech_release.kotlin_module'
+        exclude 'META-INF/translate_release.kotlin_module'
+        exclude 'META-INF/speech_v2Release.kotlin_module'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+//    flavorDimensions
+    productFlavors {
+
+        yazhou {
+            dimension "city"
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.0.0'
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0'
+    implementation 'android.arch.navigation:navigation-ui:1.0.0'
+    implementation 'com.android.support:design:27.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:palette-v7:27.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation("com.github.bumptech.glide:glide:4.6.1") {
+        exclude group: "com.android.support"
+    }
+
+    implementation 'com.dosmono.library:ai-model:2.0.4_beta19'
+    implementation 'com.dosmono.library:universal:2.0.4_beta01'
+
+//    implementation 'com.dosmono.library:ai-model:2.0.2_beta07'
+//    implementation 'com.dosmono.library:universal:2.0.2_beta13'
+    implementation "com.android.support:multidex:1.0.3"
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0'
+}

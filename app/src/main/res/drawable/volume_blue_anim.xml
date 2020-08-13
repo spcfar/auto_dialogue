@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="300" android:drawable="@mipmap/ic_volume_with_cycle_blue_03"/>
+    <item android:duration="300" android:drawable="@mipmap/ic_volume_with_cycle_blue_01"/>
+    <item android:duration="300" android:drawable="@mipmap/ic_volume_with_cycle_blue_02"/>
+</animation-list>

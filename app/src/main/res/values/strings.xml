@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">翻译机</string>
+    <string name="dialogue_translate">对话翻译</string>
+    <string name="selector_language">语言选择</string>
+    <string name="language">语言</string>
+    <string name="tv_chat_message_temp_top_content">师傅三发发第三方是否是电风扇</string>
+    <string name="tv_chat_message_temp_second_content">dsdfssfsdfsfsdfsddfdsfdsfsfsfsfsfdsfsdfdsfdsfggggggggg</string>
+    <string name="tv_china">中国</string>
+    <string name="tv_right_normal">English(AU)</string>
+    <string name="tv_left_normal">普通话</string>
+    <string name="i_have_been_listening">我在听，请说...</string>
+    <string name="i_have_been_listening_right">I\'m listening.Go ahead...</string>
+    <string name="usually_ask_answer">常用问答</string>
+</resources>

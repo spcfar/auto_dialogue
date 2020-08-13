@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<decision-list>
+    <decision>
+<!--        <if>-->
+<!--            &lt;!&ndash; 选择在什么语言下替换语言服务 &ndash;&gt;-->
+<!--            <language name="en-rUS" />-->
+<!--        </if>-->
+<!--        <then>-->
+<!--            <route-service>-->
+<!--                &lt;!&ndash; 替换语音合成 &ndash;&gt;-->
+<!--                <parameter-group-->
+<!--                    package="你的应用包名"-->
+<!--                    service="speech.synthesis" />-->
+<!--                &lt;!&ndash; 替换语音识别 &ndash;&gt;-->
+<!--                <parameter-group-->
+<!--                    package="你的应用包名"-->
+<!--                    service="speech.recognition" />-->
+<!--                &lt;!&ndash; 替换语义理解 &ndash;&gt;-->
+<!--                <parameter-group-->
+<!--                    package="你的应用包名"-->
+<!--                    service="speech.understanding" />-->
+<!--            </route-service>-->
+<!--        </then>-->
+        <if>
+            <!-- 选择在什么语言下替换语言服务 -->
+            <language name="zh-rCN" />
+        </if>
+        <then>
+            <route-service>
+                <!-- 替换语音合成 -->
+                <parameter-group
+                    package="com.hnsh.dialogue"
+                    service="speech.synthesis" />
+                <!-- 替换语音识别 -->
+                <parameter-group
+                    package="com.hnsh.dialogue"
+                    service="speech.recognition" />
+                <!-- 替换语义理解 -->
+                <parameter-group
+                    package="com.hnsh.dialogue"
+                    service="speech.understanding" />
+            </route-service>
+        </then>
+    </decision>
+</decision-list>

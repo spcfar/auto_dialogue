@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingEnd="50dp"
+    android:paddingStart="@dimen/rl_right_out_padding_side"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/chat_message_left_min_bg"
+        android:paddingStart="@dimen/ll_chat_item_padding_side"
+        android:paddingEnd="@dimen/ll_chat_item_padding_side_of_center"
+        android:paddingBottom="@dimen/ll_chat_item_padding_bottom"
+        android:paddingTop="@dimen/ll_chat_item_left_padding_top"
+        android:layout_marginTop="@dimen/ll_chat_item_margin_top"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_left_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:textSize="@dimen/tv_chat_message_top_size"
+            android:text="@string/tv_chat_message_temp_top_content"
+            android:includeFontPadding="false"
+            />
+
+        <com.hnsh.dialogue.views.TailIconTextView
+            android:id="@+id/tv_left_translate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:layout_marginTop="@dimen/titv_chat_message_margin_top"
+            android:textSize="@dimen/tv_chat_message_second_size"
+            android:includeFontPadding="false"
+            android:text="@string/tv_chat_message_temp_second_content"
+            />
+
+    </LinearLayout>
+</RelativeLayout>
