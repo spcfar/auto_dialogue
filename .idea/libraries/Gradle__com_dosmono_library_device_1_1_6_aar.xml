@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.dosmono.library:device:1.1.6@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/19f799cfeaae677d7eafe63e7975f3d3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/19f799cfeaae677d7eafe63e7975f3d3/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

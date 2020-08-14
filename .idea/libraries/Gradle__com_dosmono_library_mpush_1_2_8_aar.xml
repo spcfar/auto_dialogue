@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.dosmono.library:mpush:1.2.8@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/96fc71817f3cfc02bf48b7b312a6875e/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/96fc71817f3cfc02bf48b7b312a6875e/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

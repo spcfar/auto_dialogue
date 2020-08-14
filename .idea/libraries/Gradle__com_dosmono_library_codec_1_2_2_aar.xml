@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.dosmono.library:codec:1.2.2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2635bf312ed2adb9095cf43e5c602114/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2635bf312ed2adb9095cf43e5c602114/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
