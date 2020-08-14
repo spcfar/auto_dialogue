@@ -2,28 +2,44 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hnsh.dialogue">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/icon_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ui.SelectorLanguageActivity"></activity>
-
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
         <activity
-            android:name=".LanguageListActivity"
-            android:launchMode="singleTask"
-            android:theme="@style/MyTransparent" />
+            android:name=".ui.MenuActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="sensor">
+            android:name=".ui.LauncherActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.SelectorLanguageActivity" />
+        <activity
+            android:name=".LanguageListActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/MyTransparent" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="sensor"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.UnfCommonPhraseActivity"
+            android:configChanges="locale|layoutDirection"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
 </manifest>

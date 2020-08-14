@@ -27,13 +27,21 @@ import com.dosmono.universal.utils.ConfigUtils;
 import com.hnsh.dialogue.adapter.ChatMessageAdapter;
 import com.hnsh.dialogue.app.AppConstant;
 import com.hnsh.dialogue.bean.ChatMessage;
+import com.hnsh.dialogue.bean.QuickwordContentBean;
+import com.hnsh.dialogue.constants.BIZConstants;
+import com.hnsh.dialogue.constants.TSRConstants;
 import com.hnsh.dialogue.recognizer.RecognizerImpl;
 import com.hnsh.dialogue.recognizer.SynthesisImpl;
 import com.hnsh.dialogue.recognizer.TranslateImpl;
 import com.hnsh.dialogue.ui.SelectorLanguageActivity;
+import com.hnsh.dialogue.ui.UnfCommonPhraseActivity;
+import com.hnsh.dialogue.utils.CheckStateUtil;
+import com.hnsh.dialogue.utils.CommonUtil;
+import com.hnsh.dialogue.utils.DpWithPxUtil;
 import com.hnsh.dialogue.utils.SharedPreUtils;
 import com.hnsh.dialogue.views.GuideView;
 import com.hnsh.dialogue.views.WaveViewWithImg;
+import com.jaeger.library.StatusBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +51,7 @@ import static com.hnsh.dialogue.ui.SelectorLanguageActivity.DIRECTION;
 import static com.hnsh.dialogue.ui.SelectorLanguageActivity.LANGUAGE;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
+    private static final int EXTRA_REQUEST_CODE_SHORTCUT = 100;
     private RecyclerView mRvChat;
     private WaveViewWithImg mWvLeftLang;
     private WaveViewWithImg mWvRightLang;
@@ -53,14 +61,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RelativeLayout mRlRightLang;
     private TextView mTvLeftCountryName;
     private TextView mTvRightCountryName;
-    private RelativeLayout mRlComeBack;  //导航栏返回按钮
     private ChatMessageAdapter messageAdapter;
     private SynthesisImpl mSynthesis;
     private RecognizerImpl mRecognizer;
     private TranslateImpl mTranslate;
     private TranslateImpl mTranslateBySayTips;
     private TranslateImpl mTranslateBySayTipsByRight;
-    private TextView tv_usually_ask_answer;
 
     private int mFromLang;
     private int mToLang;
@@ -80,34 +86,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String leftRecordTips;
     private String rightRecordTips;
 
+    private ImageView iv_go_home;
+    private RelativeLayout rl_usually_qa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StatusBarUtil.setTranslucentForImageView(this, 0, null);
         setContentView(R.layout.activity_main);
         initView();
         initData();
         setGuideView();
         initListener();
         initRecognizer();
+        Logger.d("1px====="+px2dip(10)+"dp");
     }
 
 
     private void initView() {
+        rl_usually_qa = findViewById(R.id.rl_usually_qa);
         mRvChat = findViewById(R.id.rv_chat);
+        iv_go_home = findViewById(R.id.iv_go_home);
         mIvLeftLang = findViewById(R.id.iv_left_lang);
         mIvRightLang = findViewById(R.id.iv_right_lang);
         mTvLeftCountryName = findViewById(R.id.tv_left_country_name);
         mTvRightCountryName = findViewById(R.id.tv_right_country_name);
         mWvLeftLang = findViewById(R.id.wv_left_lang);
         mWvRightLang = findViewById(R.id.wv_right_lang);
-        mRlComeBack = findViewById(R.id.rl_come_back);
         mRlLeftLang = findViewById(R.id.rl_left_lang);
         mRlRightLang = findViewById(R.id.rl_right_lang);
-        tv_usually_ask_answer = findViewById(R.id.tv_usually_ask_answer);
-        mWvLeftLang.setInitialRadius(64f);
-        mWvLeftLang.setMaxRadius(106f);
-        mWvRightLang.setInitialRadius(64f);
-        mWvRightLang.setMaxRadius(106f);
+        mWvLeftLang.setInitialRadius(DpWithPxUtil.dip2px(this,16f));
+        mWvLeftLang.setMaxRadius(DpWithPxUtil.dip2px(this,28f));
+        mWvRightLang.setInitialRadius(DpWithPxUtil.dip2px(this,16f));
+        mWvRightLang.setMaxRadius(DpWithPxUtil.dip2px(this,28f));
     }
 
     private List<ChatMessage> mList = new ArrayList<>();
@@ -176,12 +187,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Logger.d("langId：" + langId);
             mSynthesis.start(mList.get(position).translateMsg, langId);
         });
-        mRlLeftLang.setOnClickListener(this);
+        rl_usually_qa.setOnClickListener(this);
+        iv_go_home.setOnClickListener(this);
         mRlRightLang.setOnClickListener(this);
         mWvLeftLang.setOnClickListener(this);
         mWvRightLang.setOnClickListener(this);
-        mRlComeBack.setOnClickListener(this);
-        tv_usually_ask_answer.setOnClickListener(this);
     }
 
     private void stopPlayAll() {
@@ -304,7 +314,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                LanguageListActivity.toActivity(this, mFromLang, mToLang);
 //                overridePendingTransition(R.anim.actionsheet_dialog_in, android.R.anim.fade_out);
 //                break;
-            case R.id.tv_usually_ask_answer:
+            case R.id.rl_usually_qa:
+                boolean result = CheckStateUtil.checkClickState(this);
+                if (!result) {
+                    return;
+                }
+                startActivityForResult(new Intent(this, UnfCommonPhraseActivity.class).putExtra(TSRConstants.KEY_DATA, TSRConstants.SPECIAL_SHORTCUT), EXTRA_REQUEST_CODE_SHORTCUT);
                 break;
             case R.id.rl_left_lang:
                 Intent mIntent = new Intent();
@@ -342,7 +357,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mWvRightLang.start();
                 mRecognizer.start(mToLang);
                 break;
-            case R.id.rl_come_back:
+            case R.id.iv_go_home:
                 exeComeBack();
         }
     }
@@ -378,6 +393,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     mTranslateBySayTipsByRight.start(getString(R.string.i_have_been_listening), 0, mToLang);
                 }
                 setFlagAndWaveColor(leftFlag, rightFlag, mFromCountryName, mToCountryName);
+            } else if (requestCode == EXTRA_REQUEST_CODE_SHORTCUT) {
+                QuickwordContentBean item = data.getParcelableExtra(TSRConstants.KEY_DATA);
+                String text = item.getContent();
+                Logger.d("=====常用问答text:" + text);
+                int count = text == null ? 0 : text.length();
+                if (count > 0 && !(count == 1 && CommonUtil.isSymbol(text))) {
+                    mChatMessage = new ChatMessage();
+                    mChatMessage.msgType = 0;
+                    mChatMessage.sourceMsg = text;
+                    mTranslate.start(text, mFromLang, mToLang);
+                }
             }
         }
     }
@@ -440,5 +466,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     mRecognizer.stop();
                 })
                 .build();
+    }
+
+
+    public int px2dip(float pxValue) {
+        final float scale = getResources().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);
     }
 }

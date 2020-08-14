@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_round_white"
+    android:minWidth="@dimen/biz_wifi_add_dialog_width"
+    android:minHeight="@dimen/biz_wifi_add_dialog_height"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_margin_20px"
+        android:layout_marginTop="@dimen/common_margin_31px"
+        android:text="@string/common_wifi_add_other_net"
+        android:textColor="@color/text_set_content"
+        android:textSize="@dimen/biz_text_size_22px"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_margin_20px"
+        android:layout_marginTop="@dimen/common_margin_30px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_margin_20px"
+            android:layout_toLeftOf="@+id/et_wifi_add_net_name"
+            android:text="@string/common_wifi_network_name"
+            android:textColor="@color/text_set_content"
+            android:textSize="@dimen/biz_text_size_24px"/>
+
+        <EditText
+            android:id="@+id/et_wifi_add_net_name"
+            android:layout_width="@dimen/biz_wifi_add_dialog_edit_text_width"
+            android:layout_height="@dimen/biz_wifi_add_dialog_edit_text_height"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/common_margin"
+            android:background="@drawable/wifi_add_edit_text_bg_shape"
+            android:paddingLeft="@dimen/common_margin"
+            android:paddingRight="@dimen/common_margin"/>
+
+        <ImageView
+            android:id="@+id/iv_wifi_add_edit_clean"
+            android:layout_width="@dimen/common_icon_size_40px"
+            android:layout_height="@dimen/common_icon_size_40px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_margin_20px"
+            android:src="@mipmap/icon_edit_text_clean"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_margin_20px"
+        android:layout_marginTop="@dimen/common_margin_20px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_margin_20px"
+            android:layout_toLeftOf="@+id/et_wifi_add_safety"
+            android:text="@string/common_wifi_network_safety"
+            android:textColor="@color/text_set_content"
+            android:textSize="@dimen/biz_text_size_24px"/>
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/et_wifi_add_safety"
+            android:layout_width="@dimen/biz_wifi_add_dialog_edit_text_width"
+            android:layout_height="@dimen/biz_wifi_add_dialog_edit_text_height"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/common_margin"
+            android:background="@drawable/wifi_add_edit_text_bg_shape"
+            android:overlapAnchor="false"
+            android:paddingLeft="@dimen/common_margin"
+            android:paddingRight="@dimen/common_margin"
+            android:popupBackground="@color/white"
+            android:spinnerMode="dropdown"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_margin_20px"
+            android:src="@mipmap/icon_spanner_arrow"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_wifi_add_password_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_margin_20px"
+        android:layout_marginTop="@dimen/common_margin_30px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_margin_20px"
+            android:layout_toLeftOf="@+id/et_wifi_add_net_password"
+            android:text="@string/common_wifi_network_safety_password"
+            android:textColor="@color/text_set_content"
+            android:textSize="@dimen/biz_text_size_24px"/>
+
+        <EditText
+            android:id="@+id/et_wifi_add_net_password"
+            android:layout_width="@dimen/biz_wifi_add_dialog_edit_text_width"
+            android:layout_height="@dimen/biz_wifi_add_dialog_edit_text_height"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/common_margin"
+            android:background="@drawable/wifi_add_edit_text_bg_shape"
+            android:paddingLeft="@dimen/common_margin"
+            android:paddingRight="@dimen/common_margin"/>
+
+        <ImageView
+            android:id="@+id/iv_wifi_add_password_clean"
+            android:layout_width="@dimen/common_icon_size_40px"
+            android:layout_height="@dimen/common_icon_size_40px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_margin_20px"
+            android:src="@mipmap/icon_edit_text_clean"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="@dimen/common_margin_30px"
+        android:background="@color/border_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_item_layout_height_80px">
+
+        <Button
+            android:id="@+id/btn_wifi_add_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="@string/cancel"
+            android:textColor="@color/color_main_gray"
+            android:textSize="@dimen/biz_text_size_30px"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/border_line"/>
+
+        <Button
+            android:id="@+id/btn_wifi_add_sure"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="@string/submit"
+            android:textColor="@color/common_text_color_fd7802"
+            android:textSize="@dimen/biz_text_size_30px"/>
+
+    </LinearLayout>
+
+</LinearLayout>

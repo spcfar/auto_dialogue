@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.dosmono.library:google-speech:2.0.1_beta11@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/042d664c351c7e9f47dc36951de4d05f/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/042d664c351c7e9f47dc36951de4d05f/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3ae1a5b432231596afb4d8bb52a828ef/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3ae1a5b432231596afb4d8bb52a828ef/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

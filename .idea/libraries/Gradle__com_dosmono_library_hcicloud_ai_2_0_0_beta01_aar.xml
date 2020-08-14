@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.dosmono.library:hcicloud-ai:2.0.0_beta01@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/605cb2c701f8c7fd88aab157f81e743e/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/605cb2c701f8c7fd88aab157f81e743e/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/605cb2c701f8c7fd88aab157f81e743e/jars/libs/hcicloud-5.0.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/605cb2c701f8c7fd88aab157f81e743e/jars/libs/hcicloud_player-5.0.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/605cb2c701f8c7fd88aab157f81e743e/jars/libs/hcicloud_recorder-5.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef379a91076f08b2c825c832c1784f51/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef379a91076f08b2c825c832c1784f51/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef379a91076f08b2c825c832c1784f51/jars/libs/hcicloud-5.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef379a91076f08b2c825c832c1784f51/jars/libs/hcicloud_player-5.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef379a91076f08b2c825c832c1784f51/jars/libs/hcicloud_recorder-5.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

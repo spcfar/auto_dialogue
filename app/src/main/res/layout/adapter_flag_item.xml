@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/rl_flag_width"
+    android:layout_width="match_parent"
     android:layout_height="@dimen/rl_flag_height"
     android:background="@drawable/ripple_selector_language"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:paddingStart="13dp"
+    android:paddingEnd="13dp">
 
 
     <ImageView
         android:id="@+id/iv_item_flag"
-        android:layout_width="@dimen/iv_flag_item_width"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/iv_flag_item_height"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/iv_flag_item_margin_top"

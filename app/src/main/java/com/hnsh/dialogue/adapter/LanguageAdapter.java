@@ -28,24 +28,16 @@ public class LanguageAdapter extends BaseRecycleAdapter<LanguageInfo> {
 
     @Override
     public int getLayoutId() {
-//        return R.layout.adapter_language_list;
         return R.layout.adapter_flag_item;
     }
 
-
     @Override
     protected void bindData(BaseViewHolder holder, int position) {
-
-//        holder.setText(R.id.tv_flag_name, datas.get(position).subname_zh);
         holder.setText(R.id.tv_flag_name, datas.get(position).name);
-        Logger.d("语言名字name===" + datas.get(position).name);
-        Logger.d("语言名字subname_zh===" + datas.get(position).subname_zh);
         ImageView ivFlag = holder.getView(R.id.iv_item_flag);
-
         Glide.with(mContext)
                 .load(datas.get(position).flag)
                 .into(ivFlag);
     }
-
 
 }

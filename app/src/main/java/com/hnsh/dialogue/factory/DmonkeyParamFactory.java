@@ -17,7 +17,9 @@ public class DmonkeyParamFactory {
 
     public static DmonkeyParam create(Map content) {
         long salt = System.currentTimeMillis();
-        String serial = CommonUtil.getDeviceId();
+//        String serial = CommonUtil.getDeviceId();
+        // TODO 正式需要换回来呀
+        String serial = "182152001000001";
         String sign = serial + salt + BIZConstants.Dmonkey.DEVICE_SECRET_KEY;
         sign = MD5.INSTANCE.md5(sign);
         return new DmonkeyParam(serial, String.valueOf(salt), sign, content);

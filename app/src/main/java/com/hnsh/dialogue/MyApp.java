@@ -12,6 +12,7 @@ import com.dosmono.universal.app.DeviceInfo;
 import com.dosmono.universal.app.Framework;
 import com.dosmono.universal.common.Constant;
 import com.hnsh.dialogue.utils.CommonUtil;
+import com.hnsh.dialogue.utils.UIUtils;
 import com.hnsh.dialogue.utils.UUIDUtils;
 
 /**
@@ -26,6 +27,7 @@ public class MyApp extends Application {
         super.onCreate();
         Logger.init("dialoguedemo");
         initFramework();
+        UIUtils.setContext(this);
     }
 
     private void initFramework() {

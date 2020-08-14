@@ -6,9 +6,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.dosmono.logger.Logger;
-import com.hnsh.dialogue.ui.
 import com.dosmono.universal.thread.TimeoutManager;
+import com.hnsh.dialogue.R;
+import com.hnsh.dialogue.factory.DialogFactory;
+import com.hnsh.dialogue.mvp.models.PrefsSettingDefaultModel;
 import com.hnsh.dialogue.mvp.presenters.base.IPresenter;
+import com.hnsh.dialogue.services.TimeoutCallback;
+import com.hnsh.dialogue.utils.TUtils;
 
 /**
  * @项目名： inspection
@@ -107,15 +111,15 @@ public abstract class HeaderActivity<P extends IPresenter> extends BaseActivity<
     }
 
     public void setTitleLeft(String leftText) {
-        LinearLayout header_back = findViewById(R.id.ll_header_back);
-        TextView left_text = findViewById(R.id.tv_header_left_text);
-        left_text.setText(leftText);
-        header_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+//        LinearLayout header_back = findViewById(R.id.ll_header_back);
+//        TextView left_text = findViewById(R.id.tv_header_left_text);
+//        left_text.setText(leftText);
+//        header_back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
     }
 
 

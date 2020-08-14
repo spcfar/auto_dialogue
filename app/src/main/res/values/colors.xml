@@ -7,4 +7,18 @@
     <color name="shadow">#cc222222</color>
     <color name="selector_ripple_trans">#50000000</color>
     <color name="white">#ffffff</color>
+    <color name="dialogue_text_color">#333333</color>
+    <color name="dialogue_qa_item_selected_color">#fff0f0f0</color>
+    <color name="dialogue_qa_item_commono_color">#ffffffff</color>
+    <color name="broadside_bar_color">#0A78AD</color>
+    <color name="common_text_color_333333">#333333</color>
+    <color name="bg_main_color">#F2F2F2</color>
+    <color name="text_set_content">#333333</color>
+    <color name="border_line">#d6d6d6</color>
+    <color name="color_main_gray">#999999</color>
+    <color name="common_text_color_fd7802">#fd7802</color>
+    <color name="black">#000000</color>
+    <color name="orange">#fc5b03</color>
+    <color name="nav_title">#99CFFF</color>
+    <color name="menu_text_color">#99CFFF</color>
 </resources>

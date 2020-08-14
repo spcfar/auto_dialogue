@@ -18,6 +18,7 @@ import android.view.animation.LinearInterpolator;
 
 import com.dosmono.logger.Logger;
 import com.hnsh.dialogue.R;
+import com.hnsh.dialogue.utils.DpWithPxUtil;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -153,9 +154,12 @@ public class WaveViewWithImg extends View {
         if (mCircleList.size() > 0) {
             postInvalidateDelayed(10);
         }
+        Logger.d("getWidth()====="+getWidth());
+        Logger.d("getHeight()====="+getHeight());
         @SuppressLint("DrawAllocation") Bitmap bitmap = BitmapFactory.decodeResource(getResources(), mDrawableResource);
 //        RectF rectF = new RectF(26, 26, 185, 185);
-        RectF rectF = new RectF(44, 44, 172, 172);
+//        RectF rectF = new RectF(44, 44, 172, 172);
+        RectF rectF = new RectF(DpWithPxUtil.dip2px(getContext(),12f), DpWithPxUtil.dip2px(getContext(),12f), DpWithPxUtil.dip2px(getContext(),44f), DpWithPxUtil.dip2px(getContext(),44f));
         canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG
                 | Paint.FILTER_BITMAP_FLAG));
         canvas.drawBitmap(bitmap, null, rectF, new Paint());

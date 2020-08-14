@@ -15,7 +15,7 @@ android {
     compileSdkVersion 29
     defaultConfig {
         flavorDimensions "city"
-        applicationId "com.hnsh.dialogue.cruzr"
+        applicationId "com.hnsh.dialogue.car"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 13
@@ -87,4 +87,8 @@ dependencies {
 //    implementation 'com.dosmono.library:universal:2.0.2_beta13'
     implementation "com.android.support:multidex:1.0.3"
     implementation 'android.arch.navigation:navigation-fragment:1.0.0'
+    implementation "org.greenrobot:eventbus:3.0.0"
+    implementation("com.jaeger.statusbarutil:library:1.5.1") {
+        exclude group: 'com.android.support'
+    }
 }

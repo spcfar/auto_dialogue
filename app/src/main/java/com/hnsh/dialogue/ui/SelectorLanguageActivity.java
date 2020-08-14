@@ -24,6 +24,7 @@ import com.hnsh.dialogue.bean.LanguageInfo;
 import com.hnsh.dialogue.utils.AppScreenMgr;
 import com.hnsh.dialogue.utils.GlideUtil;
 import com.hnsh.dialogue.views.MyItemClickListener;
+import com.jaeger.library.StatusBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,7 @@ public class SelectorLanguageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StatusBarUtil.setTranslucentForImageView(this, 0, null);
         setContentView(R.layout.activity_selector_language);
         initView();
         initData();

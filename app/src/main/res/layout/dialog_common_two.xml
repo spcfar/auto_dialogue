@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="@dimen/dialog_common_width"
+              android:layout_height="wrap_content"
+              android:background="@drawable/bg_round_white"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_dialog_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dialog_content_margin"
+        android:gravity="center"
+        android:lineSpacingExtra="3dp"
+        android:minHeight="@dimen/dialog_content_minHeight"
+        android:textColor="@color/black"
+        android:textSize="12sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/border_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dialog_confirm_height"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_dialog_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/bg_dialog_left_white"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/dialog_text_size_28px"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/border_line"/>
+
+        <TextView
+            android:id="@+id/tv_dialog_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/bg_dialog_right_white"
+            android:gravity="center"
+            android:text="@string/submit"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/dialog_text_size_28px"/>
+
+    </LinearLayout>
+
+</LinearLayout>

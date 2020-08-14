@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/selector_language"
-            android:textColor="#247CE0"
+            android:textColor="@color/nav_title"
             android:textSize="@dimen/tv_nav_title_size" />
     </RelativeLayout>
 

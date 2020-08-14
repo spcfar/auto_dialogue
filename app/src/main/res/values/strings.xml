@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">翻译机</string>
+    <string name="app_name">车载通</string>
     <string name="dialogue_translate">对话翻译</string>
     <string name="selector_language">语言选择</string>
     <string name="language">语言</string>
@@ -11,4 +11,25 @@
     <string name="i_have_been_listening">我在听，请说...</string>
     <string name="i_have_been_listening_right">I\'m listening.Go ahead...</string>
     <string name="usually_ask_answer">常用问答</string>
+    <string name="home_page" translatable="false">com.hnsh.dialogue.MainActivity</string>
+    <string name="common_net_error_two">检测到网络不通或网络异常，请检查并设置好再重试！</string>
+    <string name="common_wifi_network_safety_none">无</string>
+    <string name="common_wifi_add_other_net">添加其他网络</string>
+    <string name="common_wifi_network_name">网络名称</string>
+    <string name="common_wifi_network_safety">安全性</string>
+    <string name="common_wifi_network_safety_password">密码</string>
+    <string name="pwd_length_toast">密码长度不够8位</string>
+    <string name="key_picture_path" translatable="false">picturePath</string>
+    <string name="cancel">取消</string>
+    <string name="submit">确定</string>
+    <string name="set_net">设置网络</string>
+    <string name="setting">设置</string>
+    <string name="pair">配对</string>
+    <string name="dialogue_storage_full_tips">存储空间已满，请先清理再继续使用！</string>
+    <string name="dialogue_storage_full_clean">一键清理</string>
+    <string name="usually_qa">常用语</string>
+    <string name="menu_title">全语通车载服务平台</string>
+    <string name="temp_time">14:36</string>
+    <string name="weekday">星期五</string>
+    <string name="date">2020年8月14日</string>
 </resources>

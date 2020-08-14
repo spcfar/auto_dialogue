@@ -14,14 +14,31 @@ import android.widget.TextView;
 import com.dosmono.logger.Logger;
 import com.dosmono.universal.entity.shortcut.Item;
 import com.google.gson.Gson;
+import com.hnsh.dialogue.R;
+import com.hnsh.dialogue.adapter.QuickwordContentAdapter;
+import com.hnsh.dialogue.adapter.UnfCommonPhraseCategoryAdapter;
+import com.hnsh.dialogue.bean.QuickwordCategoryBean;
+import com.hnsh.dialogue.bean.QuickwordContentBean;
+import com.hnsh.dialogue.bean.TemplateInfo;
+import com.hnsh.dialogue.constants.BIZConstants;
+import com.hnsh.dialogue.constants.TSRConstants;
+import com.hnsh.dialogue.mvp.contracts.IUnfQuickWordContract;
 import com.hnsh.dialogue.mvp.presenters.UnfCommonPhrasePresenter;
+import com.hnsh.dialogue.utils.DrawableUtil;
+import com.hnsh.dialogue.utils.EmptyUtils;
+import com.hnsh.dialogue.utils.EventBusHelper;
+import com.hnsh.dialogue.utils.PrefsUtils;
+import com.hnsh.dialogue.utils.StatusBarCompat;
+import com.hnsh.dialogue.utils.UIUtils;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class UnfCommonPhraseActivity extends HeaderActivity<UnfCommonPhrasePresenter> implements View.OnClickListener, IUnfQuickWordContract.IUnfQuickWordView {
-
     private static final int REQUEST_CODE_SEARCH_PHRASE = 0x10;
     private RecyclerView mRecyclerView_category;
     private RecyclerView mRecyclerView_content;
@@ -39,7 +56,7 @@ public class UnfCommonPhraseActivity extends HeaderActivity<UnfCommonPhrasePrese
 
     @Override
     public int initContextView(Bundle savedInstanceState) {
-        StatusBarUtil.setColor(this, getResources().getColor(R.color.state_bar),0);
+//        StatusBarUtil.setColor(this, getResources().getColor(R.color.state_bar),0);
         return R.layout.activity_unf_common_phrase;
     }
 
@@ -68,32 +85,24 @@ public class UnfCommonPhraseActivity extends HeaderActivity<UnfCommonPhrasePrese
 
         mPhraseType = getIntent().getStringExtra(TSRConstants.KEY_DATA);
 
-        mCategoryAdapter.setOnItemClickListener(new UnfCommonPhraseCategoryAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Logger.d("position = " + position);
-                if (mCategoryAdapter.select(position)) {
-                    QuickwordCategoryBean typeInfoBean = mCategoryAdapter.getBean(position);
-                    if (typeInfoBean == null) {
-                        Logger.d("点击获取的对象为空");
-                    }
-                    long categoryId = typeInfoBean.getCategoryId();
-                    //TODO
-                    loadContent(categoryId);
+        mCategoryAdapter.setOnItemClickListener(position -> {
+            Logger.d("position = " + position);
+            if (mCategoryAdapter.select(position)) {
+                QuickwordCategoryBean typeInfoBean = mCategoryAdapter.getBean(position);
+                if (typeInfoBean == null) {
+                    Logger.d("点击获取的对象为空");
                 }
+                long categoryId = typeInfoBean.getCategoryId();
+                //TODO
+                loadContent(categoryId);
             }
         });
-        mContentAdapter.setOnItemClickCallback(new QuickwordContentAdapter.OnItemClickCallback() {
-            @Override
-            public void onItemClick(int position) {
-                QuickwordContentBean contentBean = mContentList.get(position);
-//                mPresenter.sendMessage(contentBean,sessionId.incrementAndGet());
-//                Item item = mDatas.get(position);
-                Intent extraIntent = new Intent();
-                extraIntent.putExtra(TSRConstants.KEY_DATA, contentBean);
-                setResult(Activity.RESULT_OK, extraIntent);
-                finish();
-            }
+        mContentAdapter.setOnItemClickCallback(position -> {
+            QuickwordContentBean contentBean = mContentList.get(position);
+            Intent extraIntent = new Intent();
+            extraIntent.putExtra(TSRConstants.KEY_DATA, contentBean);
+            setResult(Activity.RESULT_OK, extraIntent);
+            finish();
         });
 
         String json= PrefsUtils.getPrefs( UIUtils.getContext(), BIZConstants.SP.SP_TEMPLATE_THEME_INFO, "");
@@ -174,12 +183,7 @@ public class UnfCommonPhraseActivity extends HeaderActivity<UnfCommonPhrasePrese
             mCategoryDatas.clear();
             mCategoryDatas.addAll(mDatas);
         }
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mCategoryAdapter.notifyDataSetChanged();
-            }
-        });
+        runOnUiThread(() -> mCategoryAdapter.notifyDataSetChanged());
     }
 
     /**
@@ -189,13 +193,13 @@ public class UnfCommonPhraseActivity extends HeaderActivity<UnfCommonPhrasePrese
      */
     @Override
     public boolean isPhraseOrQAMode() {
+//        return mPhraseType.equals("0");
         return mPhraseType.equals("0");
     }
 
     @Override
     public void onClick(View view) {
         int id = view.getId();
-
         if ( id == R.id.ll_shortcut_cancel) {
             finish();
         }
@@ -237,8 +241,6 @@ public class UnfCommonPhraseActivity extends HeaderActivity<UnfCommonPhrasePrese
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEventTheme(TemplateInfo.ThemeInfo themeInfo){
         if(themeInfo==null)return;
-//
-//        mShortcut_cancel.setBackground(DrawableUtil.getGradualDrawable(GradientDrawable.Orientation.TOP_BOTTOM,themeInfo.getSideStartColorInt(),themeInfo.getSideEndColorInt()));
         mRecyclerView_category.setBackground(DrawableUtil.getGradualChangeDrawable(GradientDrawable.Orientation.LEFT_RIGHT,themeInfo.getTopColors()));
         mCategoryAdapter.setSelectColor( DrawableUtil.colorDeep(themeInfo.getTopStartColorInt()));
         mllCategory.setBackgroundColor(Color.TRANSPARENT);

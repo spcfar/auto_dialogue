@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="rectangle">
+    <size
+        android:width="@dimen/dialogue_gray_conner_bg_width"
+        android:height="@dimen/dialogue_gray_conner_bg_height"/>
+    <solid android:color="@color/dialogue_qa_item_commono_color"/>
+    <corners android:radius="@dimen/dialogue_shape_gray_conner_size"/>
+</shape>

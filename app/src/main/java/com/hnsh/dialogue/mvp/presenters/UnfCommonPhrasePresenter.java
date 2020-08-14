@@ -60,7 +60,6 @@ public class UnfCommonPhrasePresenter extends BasePresenter<IUnfQuickWordContrac
     }
 
     private void startLoadData() {
-
         if (mRootView.isPhraseOrQAMode()) {
             loadCategoryDatas();
         } else {
@@ -297,6 +296,7 @@ public class UnfCommonPhrasePresenter extends BasePresenter<IUnfQuickWordContrac
         mQAObserver = new QuickwordObserver() {
             @Override
             void onSuccess(Object o) {
+                Logger.d("requestQAData=====请求成功");
                 if (mRootView == null) {
                     return;
                 }
@@ -309,7 +309,6 @@ public class UnfCommonPhrasePresenter extends BasePresenter<IUnfQuickWordContrac
                 //界面加载分类数据和常用问答数据
                 if(categoryBeans != null && !categoryBeans.isEmpty() && !mRootView.isPhraseOrQAMode()){
                     mRootView.loadCategoryDatas(categoryBeans);
-                 //   loadPhraseData(categoryBeans.get(0).getCategoryId());
                     loadQAData(categoryBeans.get(0).getCategoryId(),0);
                 }
             }
@@ -321,6 +320,7 @@ public class UnfCommonPhrasePresenter extends BasePresenter<IUnfQuickWordContrac
                     mRootView.hideLoading();
                 }
                 new IllegalStateException("网络异常，无法请求到最新的常用问答信息");
+                Logger.d("requestQAData=====请求失败");
                 Logger.d("网络异常，无法请求到最新的常用问答信息");
             }
         };

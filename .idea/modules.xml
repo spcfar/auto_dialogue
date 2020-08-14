@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/06_auto_dialogue.iml" filepath="$PROJECT_DIR$/06_auto_dialogue.iml" group="06_auto_dialogue" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="06_auto_dialogue/app" />
+      <module fileurl="file://$PROJECT_DIR$/08_auto_dialogue.iml" filepath="$PROJECT_DIR$/08_auto_dialogue.iml" group="08_auto_dialogue" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="08_auto_dialogue/app" />
     </modules>
   </component>
 </project>

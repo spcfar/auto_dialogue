@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/bg_round_white"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_dialog_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="@dimen/common_margin"
+        android:layout_marginRight="@dimen/common_margin"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:lineSpacingExtra="3dp"
+        android:textColor="@color/black"
+        android:textSize="26px"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/dialog_padding_bottom">
+
+        <Button
+            android:id="@+id/btn_dialog_cancel"
+            android:layout_width="@dimen/dialog_width"
+            android:layout_height="@dimen/dialog_height"
+            android:layout_marginLeft="38px"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_dialog_orange_selected"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            android:textSize="28px"/>
+
+        <Button
+            android:id="@+id/btn_dialog_submit"
+            android:layout_width="@dimen/dialog_width"
+            android:layout_height="@dimen/dialog_height"
+            android:layout_marginLeft="24px"
+            android:layout_marginRight="38px"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_dialog_blue_selector"
+            android:gravity="center"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textSize="28px"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/main_bg"
+    tools:context="com.hnsh.dialogue.ui.MenuActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_nav_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rl_nav_height"
+        android:gravity="center"
+        android:background="@mipmap/nav_top_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_title"
+            android:textColor="@color/nav_title"
+            android:textSize="@dimen/tv_nav_title"/>
+
+    </RelativeLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_time"
+        android:layout_width="@dimen/cl_menu_item_width"
+        android:layout_height="@dimen/cl_menu_item_height"
+        android:background="@mipmap/menu_item_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cl_dialogue"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_nav_top">
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/temp_time"
+            android:textColor="#99CFFF"
+            android:textSize="@dimen/menu_time_size"
+            app:layout_constraintBottom_toTopOf="@+id/tv_weekday"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tv_weekday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weekday"
+            android:textColor="#99CFFF"
+            android:textSize="@dimen/menu_weekday_size"
+            app:layout_constraintBottom_toTopOf="@+id/tv_date"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_time" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date"
+            android:textColor="#99CFFF"
+            android:textSize="@dimen/menu_date_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_weekday"
+            android:layout_marginTop="@dimen/tv_date_margin_top"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_dialogue"
+        android:layout_width="@dimen/cl_menu_item_width"
+        android:layout_height="@dimen/cl_menu_item_height"
+        android:layout_marginStart="@dimen/menu_item_space"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cl_elector_map"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cl_time"
+        app:layout_constraintTop_toBottomOf="@+id/rl_nav_top"
+        android:background="?android:attr/selectableItemBackground"
+        android:focusable="true"
+        android:clickable="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/menu_item_bg"/>
+
+
+        <ImageView
+            android:id="@+id/iv_dialogue"
+            android:layout_width="@dimen/menu_item_img_size"
+            android:layout_height="@dimen/menu_item_img_size"
+            android:src="@mipmap/dialogue_menu"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialogue_translate"
+            android:textColor="@color/menu_text_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_dialogue"
+            android:layout_marginTop="@dimen/tv_title_margin_top"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_elector_map"
+        android:layout_width="@dimen/cl_menu_item_width"
+        android:layout_height="@dimen/cl_menu_item_height"
+        android:background="@mipmap/menu_item_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cl_dialogue"
+        app:layout_constraintTop_toBottomOf="@+id/rl_nav_top"
+        android:layout_marginStart="@dimen/menu_item_space"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_elector_map"
+            android:layout_width="@dimen/menu_item_img_size"
+            android:layout_height="@dimen/menu_item_img_size"
+            android:src="@mipmap/elector_map_menu"
+            app:layout_constraintBottom_toTopOf="@+id/tv_elector_map"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tv_elector_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialogue_translate"
+            android:textColor="@color/menu_text_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_elector_map"
+            android:layout_marginTop="@dimen/tv_title_margin_top"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
